@@ -651,15 +651,32 @@ export default function Welcome({
                                 Blood Stock
                             </button>
                             <button
-                                onClick={() => setActiveTab('board')}
+                                onClick={() => {
+                                    setActiveTab('board');
+                                    setSelectedCommittee('Board Member');
+                                }}
                                 className={`flex items-center gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-xl transition-all whitespace-nowrap ${
-                                    activeTab === 'board'
+                                    activeTab === 'board' && selectedCommittee === 'Board Member'
                                         ? 'bg-white text-rose-600 shadow-xs font-bold'
                                         : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
                                 }`}
                             >
                                 <Users className="w-3.5 h-3.5 text-rose-500" />
-                                <span>Board</span>
+                                <span>Board Member</span>
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setActiveTab('board');
+                                    setSelectedCommittee('Advisor panel');
+                                }}
+                                className={`flex items-center gap-1.5 px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-xl transition-all whitespace-nowrap ${
+                                    activeTab === 'board' && selectedCommittee === 'Advisor panel'
+                                        ? 'bg-white text-rose-600 shadow-xs font-bold'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                }`}
+                            >
+                                <ShieldCheck className="w-3.5 h-3.5 text-rose-500" />
+                                <span>Advisor Panel</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab('gallery')}
@@ -754,11 +771,24 @@ export default function Welcome({
                             Blood Stock
                         </button>
                         <button
-                            onClick={() => setActiveTab('board')}
-                            className={`px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center gap-1 ${activeTab === 'board' ? 'bg-rose-600 text-white font-bold' : 'bg-slate-100 text-slate-700'}`}
+                            onClick={() => {
+                                setActiveTab('board');
+                                setSelectedCommittee('Board Member');
+                            }}
+                            className={`px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center gap-1 ${activeTab === 'board' && selectedCommittee === 'Board Member' ? 'bg-rose-600 text-white font-bold' : 'bg-slate-100 text-slate-700'}`}
                         >
                             <Users className="w-3.5 h-3.5" />
-                            <span>Board</span>
+                            <span>Board Member</span>
+                        </button>
+                        <button
+                            onClick={() => {
+                                setActiveTab('board');
+                                setSelectedCommittee('Advisor panel');
+                            }}
+                            className={`px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center gap-1 ${activeTab === 'board' && selectedCommittee === 'Advisor panel' ? 'bg-rose-600 text-white font-bold' : 'bg-slate-100 text-slate-700'}`}
+                        >
+                            <ShieldCheck className="w-3.5 h-3.5" />
+                            <span>Advisor Panel</span>
                         </button>
                         <button
                             onClick={() => setActiveTab('gallery')}
@@ -2310,7 +2340,7 @@ export default function Welcome({
                                 }`}
                             >
                                 <Users className="w-4 h-4" />
-                                <span>1. Board Member</span>
+                                <span>Board Member</span>
                                 <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                                     selectedCommittee === 'Board Member' ? 'bg-rose-700 text-white' : 'bg-slate-200 text-slate-700'
                                 }`}>
@@ -2327,7 +2357,7 @@ export default function Welcome({
                                 }`}
                             >
                                 <ShieldCheck className="w-4 h-4" />
-                                <span>2. Advisor panel</span>
+                                <span>Advisor Panel</span>
                                 <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                                     selectedCommittee === 'Advisor panel' ? 'bg-rose-700 text-white' : 'bg-slate-200 text-slate-700'
                                 }`}>
@@ -3197,8 +3227,8 @@ export default function Welcome({
                                         onChange={(e) => boardForm.setData('committee', e.target.value)}
                                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-semibold focus:bg-white focus:outline-rose-600"
                                     >
-                                        <option value="Board Member">1. Board Member</option>
-                                        <option value="Advisor panel">2. Advisor panel</option>
+                                        <option value="Board Member">Board Member</option>
+                                        <option value="Advisor panel">Advisor Panel</option>
                                     </select>
                                 </div>
 

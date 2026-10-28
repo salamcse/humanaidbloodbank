@@ -415,8 +415,8 @@ export default function Dashboard({
                                         onChange={(e) => form.setData('committee', e.target.value)}
                                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-semibold focus:bg-white focus:outline-rose-600"
                                     >
-                                        <option value="Board Member">1. Board Member</option>
-                                        <option value="Advisor panel">2. Advisor panel</option>
+                                        <option value="Board Member">Board Member</option>
+                                        <option value="Advisor panel">Advisor Panel</option>
                                     </select>
                                 </div>
 
